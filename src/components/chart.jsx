@@ -4,7 +4,6 @@ import Chart from "react-apexcharts";
 class App11 extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.dim,"aaaa")
   }
 
   render() {

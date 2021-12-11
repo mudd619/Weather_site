@@ -114,10 +114,10 @@ function Weather(){
         let change = document.getElementById("chan");
         let changing = document.getElementById("changing");
         let input_value = document.getElementById("input-box").value
-        axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${input_value}&apiKey=735db21059b94819b455d557b6b6193f`)
+        axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${input_value}&apiKey=${process.env.REACT_APP_FIRST_KEY}`)
         .then((res)=>{
             setData(res.data.features);
-            // console.log(res.data)
+            
             change.style.display = "none"
             changing.style.display = "block";
         })
@@ -133,10 +133,10 @@ function Weather(){
        
         changing.style.display = "none"
         input_box.value = city ? state ?  `${city} , ${state}` : `${city}` : ""
-        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=f2f1ed3c4cb87f1babf6e9d64393a776`)
+        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${process.env.REACT_APP_SECOND_KEY}`)
         .then((res)=>{
             setLoading(false)
-            // console.log(res.data.daily);
+            
             setFlex(res.data.daily);
             setFlexChange([res.data.daily[0]])
           
@@ -185,7 +185,7 @@ function Weather(){
       }
     
       const {  width, height } = useWindowDimensions()
-    //   console.log(width,height)
+   
 
 
     return <div className="container">
